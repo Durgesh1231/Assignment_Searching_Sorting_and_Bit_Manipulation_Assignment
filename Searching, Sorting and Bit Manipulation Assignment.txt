@@ -1,0 +1,387 @@
+                            SORTING ARRAY ASSIGNMENT - 1
+
+Ans 1.
+
+public class BubbleSortDesc {
+    public static void bubbleSortDesc(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] < arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 5, 1, 6, 0};
+        bubbleSortDesc(arr);
+        System.out.print("Output Array: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+Ans 2.
+
+public class SelectionSortDesc {
+    public static void selectionSortDesc(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            int maxIdx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] > arr[maxIdx]) {
+                    maxIdx = j;
+                }
+            }
+            int temp = arr[maxIdx];
+            arr[maxIdx] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 5, 1, 6, 0};
+        selectionSortDesc(arr);
+        System.out.print("Output Array: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+Ans 3.
+
+public class InsertionSortDesc {
+    public static void insertionSortDesc(int[] arr) {
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] < key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = key;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 5, 1, 6, 0};
+        insertionSortDesc(arr);
+        System.out.print("Output Array: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+Ans 4.
+
+public class BubbleSortPasses {
+    public static int numberOfPasses(int[] arr) {
+        return arr.length - 1;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 5, 1, 6, 0};
+        int passes = numberOfPasses(arr);
+        System.out.println("Number of Passes Required: " + passes);
+    }
+}
+
+
+Ans 5.
+
+public class SelectionSortIterations {
+    public static int numberOfIterations(int[] arr) {
+        return arr.length - 1;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 5, 1, 6, 0};
+        int iterations = numberOfIterations(arr);
+        System.out.println("Number of Iterations Required: " + iterations);
+    }
+}
+
+
+                             DSA - number system ASSIGNMENT -2
+
+Ans 1.
+
+public class BinaryRepresentation {
+    public static void printBinary(int number) {
+        String binaryString = Integer.toBinaryString(number);
+        System.out.println("Binary representation of " + number + ": " + binaryString);
+    }
+
+    public static void main(String[] args) {
+        printBinary(5);  // Output: 101
+        printBinary(10); // Output: 1010
+    }
+}
+
+
+Ans 2.
+
+public class PowerOfTwo {
+    public static boolean isPowerOfTwo(int n) {
+        return (n > 0) && (n & (n - 1)) == 0;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("15 is power of two: " + isPowerOfTwo(15)); // Output: False
+        System.out.println("32 is power of two: " + isPowerOfTwo(32)); // Output: True
+    }
+}
+
+
+Ans 3.
+
+public class OddEvenCheck {
+    public static void checkOddEven(int number) {
+        if ((number & 1) == 0) {
+            System.out.println(number + " is Even");
+        } else {
+            System.out.println(number + " is Odd");
+        }
+    }
+
+    public static void main(String[] args) {
+        checkOddEven(8);  // Output: 8 is Even
+        checkOddEven(3);  // Output: 3 is Odd
+    }
+}
+
+
+Ans 4.
+
+public class CountSetBits {
+    public static int countSetBits(int number) {
+        int count = 0;
+        while (number > 0) {
+            count += (number & 1);
+            number >>= 1;
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Number of set bits in 5: " + countSetBits(5)); // Output: 2
+        System.out.println("Number of set bits in 10: " + countSetBits(10)); // Output: 2
+    }
+}
+
+
+Ans 5.
+
+public class OddOccurringElement {
+    public static int findOddOccurringElement(int[] arr) {
+        int result = 0;
+        for (int num : arr) {
+            result ^= num;
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {4, 3, 6, 2, 6, 4, 2, 3, 4, 3, 3};
+        System.out.println("The odd occurring element is: " + findOddOccurringElement(arr)); // Output: 3
+    }
+}
+
+
+
+                          Searching in an array- Linear & Binary Search Assignment
+
+Ans 1.
+
+import java.util.Scanner;
+
+public class LinearSearch {
+    public static int findElement(int[] arr, int x) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == x) {
+                return i;
+            }
+        }
+        return -1; // Element not found
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+        int[] arr = new int[size];
+
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < size; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        System.out.print("Enter the element to find: ");
+        int x = scanner.nextInt();
+
+        int index = findElement(arr, x);
+        if (index == -1) {
+            System.out.println("Element not found in array");
+        } else {
+            System.out.println("Element found at index: " + index);
+        }
+
+        scanner.close();
+    }
+}
+
+
+Ans 2.
+
+public class LastOccurrence {
+    public static int findLastOccurrence(int[] arr, int target) {
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] == target) {
+                return i;
+            }
+        }
+        return -1; // Target not found
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {1, 1, 1, 2, 3, 4, 4, 5, 6, 6, 6, 6};
+        int target1 = 4;
+        System.out.println("Last occurrence of " + target1 + " is at index: " + findLastOccurrence(arr1, target1));
+
+        int[] arr2 = {2, 2, 2, 6, 6, 18, 29, 30, 30, 30};
+        int target2 = 15;
+        System.out.println("Last occurrence of " + target2 + " is at index: " + findLastOccurrence(arr2, target2));
+    }
+}
+
+
+Ans 3.
+
+
+
+public class CountOnes {
+    public static int countOnes(int[] arr) {
+        int left = 0, right = arr.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == 1) {
+                return arr.length - mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {0, 0, 0, 0, 1, 1, 1, 1, 1, 1};
+        System.out.println("Total number of 1's: " + countOnes(arr1));
+
+        int[] arr2 = {0, 0, 0, 0, 0, 1, 1};
+        System.out.println("Total number of 1's: " + countOnes(arr2));
+    }
+}
+
+
+
+
+Ans 4.
+
+
+
+public class CountOccurrences {
+    public static int countOccurrences(int[] nums, int target) {
+        int first = findFirstOccurrence(nums, target);
+        if (first == -1) {
+            return -1; // Target not found
+        }
+        int last = findLastOccurrence(nums, target);
+        return last - first + 1;
+    }
+
+    private static int findFirstOccurrence(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
+            } else {
+                if (mid == 0 || nums[mid - 1] != target) {
+                    return mid;
+                }
+                right = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    private static int findLastOccurrence(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
+            } else {
+                if (mid == nums.length - 1 || nums[mid + 1] != target) {
+                    return mid;
+                }
+                left = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] nums1 = {2, 5, 5, 5, 6, 6, 8, 9, 9, 9};
+        int target1 = 5;
+        int count1 = countOccurrences(nums1, target1);
+        if (count1 == -1) {
+            System.out.println("Target " + target1 + " not found.");
+        } else {
+            System.out.println("Target " + target1 + " occurs " + count1 + " times.");
+        }
+
+        int[] nums2 = {2, 5, 5, 5, 6, 6, 8, 9, 9, 9};
+        int target2 = 6;
+        int count2 = countOccurrences(nums2, target2);
+        if (count2 == -1) {
+            System.out.println("Target " + target2 + " not found.");
+        } else {
+            System.out.println("Target " + target2 + " occurs " + count2 + " times.");
+        }
+    }
+}
+
+
+
+Ans 5.
+
+
+public class PerfectSquare {
+    public static boolean isPerfectSquare(int num) {
+        if (num < 0) return false;
+        int sqrt = (int) Math.sqrt(num);
+        return (sqrt * sqrt == num);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("16 is a perfect square: " + isPerfectSquare(16)); // Output: true
+        System.out.println("14 is a perfect square: " + isPerfectSquare(14)); // Output: false
+    }
+}
